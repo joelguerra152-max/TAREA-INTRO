@@ -1,0 +1,184 @@
+/* ============================================
+    ESTILO EDITORIAL — "TRABAJO EN EQUIPO"
+    Tipografía: Bebas Neue + Outfit
+    Tema: Papel vintage con acentos en óxido
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500&display=swap');
+
+/* --- Variables --- */
+:root {
+    --ink:   #0f0e0c;
+    --paper: #f5f0e8;
+    --rust:  #c94f2a;
+    --gold:  #d4a017;
+    --smoke: #e8e2d6;
+    --line:  #c8bfaf;
+}
+
+/* --- Base --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #ddd8cc;          /* fondo externo más oscuro para resaltar la página */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 3rem 1rem;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    color: var(--ink);
+}
+
+/* --- Hoja de papel --- */
+body > * {
+    background: var(--paper);
+    max-width: 680px;
+    width: 100%;
+    padding: 3rem 2.5rem;
+    position: relative;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+}
+
+/* Líneas de fondo tipo libreta */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+    transparent, transparent 27px,
+    rgba(200,191,175,0.2) 27px, rgba(200,191,175,0.2) 28px
+    );
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ---- H1 ---- */
+h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    letter-spacing: 0.06em;
+    line-height: 1;
+    color: var(--ink);
+    border-left: 6px solid var(--rust);
+    padding-left: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+h1::after {
+    content: "";
+    display: block;
+    width: 3rem;
+    height: 3px;
+    background: var(--gold);
+    margin-top: 0.5rem;
+}
+
+/* ---- LISTA ORDENADA ---- */
+ol {
+    list-style: none;
+    counter-reset: n;
+    margin: 0 0 2.5rem;
+    padding: 0;
+}
+
+ol li {
+    counter-increment: n;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 1rem;
+    font-weight: 400;
+    transition: padding-left 0.2s, color 0.2s;
+}
+
+ol li:hover {
+    padding-left: 0.5rem;
+    color: var(--rust);
+}
+
+ol li::before {
+    content: counter(n);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    color: var(--rust);
+    background: var(--smoke);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* ---- TABLA ---- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 0 2.5rem;
+    font-size: 0.95rem;
+}
+
+thead tr {
+    border-top: 2px solid var(--ink);
+    border-bottom: 2px solid var(--ink);
+}
+
+thead th {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.12em;
+    font-weight: 400;
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+    color: var(--ink);
+}
+
+tbody td {
+    padding: 0.7rem 0.8rem;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink);
+    transition: background 0.2s;
+}
+
+tbody tr:hover td {
+    background: var(--smoke);
+}
+
+tbody td:first-child {
+    font-weight: 500;
+}
+
+/* ---- ENLACE ---- */
+a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.05rem;
+    letter-spacing: 0.1em;
+    color: var(--paper);
+    background: var(--rust);
+    padding: 0.5rem 1.3rem;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+}
+
+a::after {
+    content: "↗";
+    font-size: 0.85rem;
+}
+
+a:hover {
+    background: var(--ink);
+    transform: translateY(-2px);
+}
